@@ -12,25 +12,21 @@ setup_config_link() {
     if [[ "$(realpath "$dest")" == "$(realpath "$src")" ]]; then
       return 0
     fi
-    echo "setup-symlinks: skipping ${name}: $dest is already a symlink elsewhere" >&2
-    return 0
+    rm -f "$dest"
   fi
 
   if [[ -e "$dest" ]]; then
     if [[ ! -e "$src" ]]; then
       mv "$dest" "$src"
     else
-      echo "setup-symlinks: skipping ${name}: both $dest and $src exist" >&2
-      return 0
+      rm -rf "$dest"
     fi
   fi
 
-  if [[ ! -e "$dest" ]]; then
-    if [[ ! -e "$src" ]]; then
-      echo "setup-symlinks: skipping ${name}: $src does not exist" >&2
-      return 0
-    fi
+  if [[ ! -e "$dest" ]] && [[ -e "$src" ]]; then
     ln -s "$src" "$dest"
+  elif [[ ! -e "$dest" ]] && [[ ! -e "$src" ]]; then
+    echo "setup-symlinks: skipping ${name}: $src does not exist" >&2
   fi
 }
 
@@ -47,27 +43,25 @@ setup_home_link() {
     if [[ "$(realpath "$dest")" == "$(realpath "$src")" ]]; then
       return 0
     fi
-    echo "setup-symlinks: skipping ${name}: $dest is already a symlink elsewhere" >&2
-    return 0
+    rm -f "$dest"
   fi
 
   if [[ -e "$dest" ]]; then
     if [[ ! -e "$src" ]]; then
       mv "$dest" "$src"
     else
-      echo "setup-symlinks: skipping ${name}: both $dest and $src exist" >&2
-      return 0
+      rm -rf "$dest"
     fi
   fi
 
-  if [[ ! -e "$dest" ]]; then
-    if [[ ! -e "$src" ]]; then
-      echo "setup-symlinks: skipping ${name}: $src does not exist" >&2
-      return 0
-    fi
+  if [[ ! -e "$dest" ]] && [[ -e "$src" ]]; then
     ln -s "$src" "$dest"
+  elif [[ ! -e "$dest" ]] && [[ ! -e "$src" ]]; then
+    echo "setup-symlinks: skipping ${name}: $src does not exist" >&2
   fi
 }
+
+mkdir -p "$HOME_DOTFILES"
 
 for name in .tmux.conf .zprofile .zshenv .zshrc; do
   setup_home_link "$name"
