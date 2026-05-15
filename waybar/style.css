@@ -1,0 +1,104 @@
+@import "themes/mocha.css";
+
+* {
+  border: none;
+  border-radius: 0px;
+  font-family:
+    Iosevka,
+    FontAwesome,
+    Noto Sans CJK;
+  font-size: 14px;
+  font-style: normal;
+  min-height: 0;
+  color: @black;
+}
+
+window#waybar {
+  background-color: alpha(@base, 0.4);
+}
+
+tooltip {
+  background-color: @overlay0;
+}
+
+/* Available modules */
+/* #custom-date, */
+/* #clock, */
+/* #cpu, */
+/* #disk, */
+/* #memory, */
+/* #battery, */
+/* #pulseaudio, */
+/* #tray, */
+/* #network, */
+/* #window, */
+/* #workspaces, */
+/* #custom-randwall, */
+/* #custom-launcher */
+
+.module {
+  background: @surface0;
+  border: solid 1px @surface1;
+  border-radius: 16px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  padding: 5px 12px 5px 12px;
+  margin: 5px;
+  color: #fff;
+  outline: none;
+}
+
+#pulseaudio {
+  margin-right: 50px;
+}
+
+#cpu {
+  margin-left: 50px;
+}
+
+#custom-launcher,
+#workspaces,
+#clock {
+  background: @surface1;
+}
+
+#window {
+  background: @surface1;
+}
+
+#tray {
+  background: @surface0;
+  color: #fff;
+}
+
+#workspaces button {
+  padding: 0px 5px;
+  border-radius: 16px;
+}
+
+#workspaces button.active {
+  background-color: transparent;
+  border-radius: 16px;
+}
+
+#custom-date {
+  color: #d3869b;
+}
+
+#clock {
+  font-weight: bold;
+  /*border-left: solid 1px #282738;*/
+}
+
+#pulseaudio.muted {
+  color: @red;
+}
+
+#custom-launcher {
+  padding: 0 20px 0 13px;
+  font-size: 20px;
+}
+
+.calendar {
+  background: @overlay0;
+}
