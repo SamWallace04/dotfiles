@@ -1,3 +1,10 @@
+local primary = "rgb(f2c1d4)"
+local surface = "rgb(2a1922)"
+local secondary = "rgb(ffd6e2)"
+local error = "rgb(ec8a92)"
+local tertiary = "rgb(d4a3bd)"
+local surface_lowest = "rgb(311f29)"
+
 hl.config({
 	general = {
 		layout = "master",
@@ -5,8 +12,8 @@ hl.config({
 		gaps_out = 10,
 		border_size = 2,
 		col = {
-			active_border = { colors = { "rgba(cba6f7ff)", "rgba(9399b2ff)" }, angle = 45 },
-			inactive_border = { colors = { "rgba(313244cc)", "rgba(585b70cc)" }, angle = 45 },
+			active_border = { colors = { primary }, angle = 45 },
+			inactive_border = { colors = { surface }, angle = 45 },
 		},
 	},
 	input = {
@@ -17,9 +24,9 @@ hl.config({
 		rounding_power = 2,
 		shadow = {
 			enabled = true,
-			color = 0xeecba6f7,
-			color_inactive = 0xee181825,
-			range = 25,
+			color = tertiary,
+			color_inactive = surface_lowest,
+			range = 15,
 		},
 		blur = {
 			enabled = true,
