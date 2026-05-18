@@ -48,6 +48,9 @@
 # # Just for example:
 # resize-overlay-duration = 4s 200ms
 
+keybind = super+shift+e=new_split:right
+keybind = super+shift+d=new_split:down
+
 theme = noctalia
 background-opacity = 0.6
 
