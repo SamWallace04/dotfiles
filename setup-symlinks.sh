@@ -3,6 +3,11 @@ DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CONFIG_PATH="$HOME/.config"
 HOME_DOTFILES="$DOTFILES/home"
 
+# Allows the git hooks to run on pull for this repo going forward.
+git -C "$DOTFILES" config core.hooksPath .githooks
+
+SKIP_DIRS="home .git"
+
 setup_config_link() {
   local name="$1"
   local src="$DOTFILES/$name"
@@ -25,12 +30,21 @@ setup_config_link() {
 
   if [[ ! -e "$dest" ]] && [[ -e "$src" ]]; then
     ln -s "$src" "$dest"
+    echo "setup-symlinks: linked $dest -> $src"
   elif [[ ! -e "$dest" ]] && [[ ! -e "$src" ]]; then
     echo "setup-symlinks: skipping ${name}: $src does not exist" >&2
   fi
 }
 
-for name in nvim hypr ghostty rofi waybar; do
+mkdir -p "$CONFIG_PATH"
+
+for dir in "$DOTFILES"/*/; do
+  name="$(basename "$dir")"
+  skip=false
+  for s in $SKIP_DIRS; do
+    [[ "$name" == "$s" ]] && skip=true && break
+  done
+  $skip && continue
   setup_config_link "$name"
 done
 
@@ -56,13 +70,16 @@ setup_home_link() {
 
   if [[ ! -e "$dest" ]] && [[ -e "$src" ]]; then
     ln -s "$src" "$dest"
+    echo "setup-symlinks: linked $dest -> $src"
   elif [[ ! -e "$dest" ]] && [[ ! -e "$src" ]]; then
     echo "setup-symlinks: skipping ${name}: $src does not exist" >&2
   fi
 }
 
-mkdir -p "$HOME_DOTFILES"
-
-for name in .tmux.conf .zprofile .zshenv .zshrc; do
-  setup_home_link "$name"
-done
+if [[ -d "$HOME_DOTFILES" ]]; then
+  for file in "$HOME_DOTFILES"/.*; do
+    name="$(basename "$file")"
+    [[ "$name" == "." || "$name" == ".." ]] && continue
+    setup_home_link "$name"
+  done
+fi
