@@ -1,9 +1,16 @@
 # If you come from bash you might have to change your $PATH.
 path+=('/home/sam/.local/bin')
 path+=('/home/sam/.nix-profile/bin')
+
+# Macos only exports.
+if [[ "$(uname)" == Darwin ]]; then
+  export PATH="$HOME/.local/bin:$PATH"
+  export PATH=/opt/homebrew/bin:$PATH
+fi
+
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 # Path to your oh-my-zsh installation.
- export ZSH="$HOME/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 export TERM='xterm-256color'
 export EDITOR='nvim'
@@ -75,7 +82,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(aliases git nvm npm rust tmux eza)
+plugins=(aliases git nvm npm rust eza)
 
 # Comment in/out for omzsh
  source $ZSH/oh-my-zsh.sh
@@ -117,6 +124,7 @@ alias reload="source ~/.zshrc"
 
 # Drop in replacements
 alias ls="eza"
+alias l="eza -lG"
 alias cat="bat"
 
 #Pacman
@@ -130,8 +138,6 @@ alias zshconfig='nvim ~/.zshrc'
 alias vconfig='nvim ~/.config/nvim/'
 alias hyprconfig='nvim ~/.config/hypr/'
 alias wbconfig='nvim ~/.config/waybar/'
-alias xinitconfig='nvim ~/.xinitrc'
-alias kittyconfig='nvim ~/.config/kitty/kitty.conf'
 
 # Dev
 alias ni='npm i'
@@ -146,5 +152,3 @@ alias cb="cargo build"
 [[ "$TERM_PROGRAM" == "vscode" ]] && unset ARGV0
 
 eval "$(starship init zsh)"
-eval "$(zoxide init zsh)"
-eval $(thefuck --alias)
