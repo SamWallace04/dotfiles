@@ -122,6 +122,9 @@ alias v='nvim'
 alias cls='clear'
 alias reload="source ~/.zshrc"
 
+# Zellij layouts
+alias zdev="zellij --layout ~/dotfiles/zellij/layouts/dev.kdl"
+
 # Drop in replacements
 alias ls="eza"
 alias l="eza -lG"
@@ -138,6 +141,7 @@ alias zshconfig='nvim ~/.zshrc'
 alias vconfig='nvim ~/.config/nvim/'
 alias hyprconfig='nvim ~/.config/hypr/'
 alias wbconfig='nvim ~/.config/waybar/'
+alias zjconfig='nvim ~/.config/zellij/'
 
 # Dev
 alias ni='npm i'
@@ -152,3 +156,11 @@ alias cb="cargo build"
 [[ "$TERM_PROGRAM" == "vscode" ]] && unset ARGV0
 
 eval "$(starship init zsh)"
+
+# pnpm
+export PNPM_HOME="/home/sam/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
+# pnpm end

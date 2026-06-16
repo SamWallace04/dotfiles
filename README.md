@@ -11,7 +11,7 @@
     - [Other programs](#other-programs)
   - [Quickshell](#quickshell)
   - [Other setup steps](#other-setup-steps)
-    - [Tmux](#tmux)
+    - [Zellij](https://zellij.dev/)
     - [Neovim](#neovim)
     - [Misc](#misc)
 <!--toc:end-->
@@ -68,11 +68,6 @@ Plugins:
 - Install [Noctalia shell](https://docs.noctalia.dev/v4/getting-started/installation/)
 
 ## Other setup steps
-
-### Tmux
-
-- Install [tmux](https://github.com/tmux/tmux/wiki/Installing)
-- Configure [tpm](https://github.com/tmux-plugins/tpm)
 
 ### Neovim
 

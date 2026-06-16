@@ -1,0 +1,18 @@
+layout {
+  pane size=1 borderless=true {
+    plugin location="tab-bar"
+  }
+  pane {
+    command "nvim"
+    args "."
+  }
+  pane split_direction="vertical" size="40%" {
+    pane
+    pane {
+      command "claude"
+    }
+  }
+  pane size=1 borderless=true {
+    plugin location="status-bar"
+  }
+}
