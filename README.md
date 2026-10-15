@@ -4,7 +4,6 @@
 - [My setup](#my-setup)
   - [Core](#core)
   - [Setting up symlinks](#setting-up-symlinks)
-    - [Set up script](#set-up-script)
   - [ZSH and OMZSH](#zsh-and-omzsh)
   - [Hyprland](#hyprland)
     - [Hyprpm](#hyprpm)
@@ -29,13 +28,7 @@
 All source control config files are kept in this folder
 and symlinked to the appropriate folder.
 
-### Set up script
-
 To set up the symlinks automatically run `./setup-symlinks.sh`.
-Change the for loop with folder names in .config
-to customise which links get set up.
-
-The script also moves folders into the repo if the folder doesn't already exist.
 
 ## ZSH and OMZSH
 

@@ -137,6 +137,7 @@ alias pmr='sudo pacman -Rcns'
 alias pms='pacman -Ss'
 
 # Config editing
+alias dotconfig='nvim ~/dotfiles/'
 alias zshconfig='nvim ~/.zshrc'
 alias vconfig='nvim ~/.config/nvim/'
 alias hyprconfig='nvim ~/.config/hypr/'

@@ -54,3 +54,4 @@ keybind = super+shift+d=new_split:down
 theme = noctalia
 background-opacity = 0.6
 
+mouse-scroll-multiplier = 0.5

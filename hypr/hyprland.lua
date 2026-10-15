@@ -10,3 +10,6 @@ hl.monitor({
 	position = "0x0",
 	scale = 1,
 })
+
+-- For Noctalia Color templates
+require("noctalia").apply_theme()

@@ -1,10 +1,10 @@
 hl.on("hyprland.start", function()
 	-- Background apps
-	hl.exec_cmd("qs -c noctalia-shell")
-	hl.exec_cmd("flatpak run com.github.jagrat7.LinuxWallpaperEngine", { workspace = "2 silent" })
+	hl.exec_cmd("noctalia")
+	hl.exec_cmd("linux-wallpaper-engine-ux", { workspace = "3 silent" })
 	hl.exec_cmd("fcitx5 -D")
 	hl.exec_cmd("wl-paste --watch cliphist store")
-	hl.exec_cmd("/usr/lib/polkit-kde-authentication-agent-1")
+	hl.exec_cmd("/usr/lib/hyprpolkitagent/hyprpolkitagent")
 	hl.exec_cmd("remotemouse")
 	hl.exec_cmd("blueman-applet")
 
