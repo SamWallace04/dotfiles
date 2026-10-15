@@ -84,6 +84,13 @@ COMPLETION_WAITING_DOTS="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(aliases git nvm npm rust eza)
 
+# NixOS: oh-my-zsh comes read-only from the Nix store, so keep its cache
+# elsewhere and let Nix handle updates.
+if [[ -e /etc/NIXOS ]]; then
+  export ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/oh-my-zsh"
+  zstyle ':omz:update' mode disabled
+fi
+
 # Comment in/out for omzsh
  source $ZSH/oh-my-zsh.sh
 

@@ -4,15 +4,17 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("linux-wallpaper-engine-ux", { workspace = "3 silent" })
 	hl.exec_cmd("fcitx5 -D")
 	hl.exec_cmd("wl-paste --watch cliphist store")
-	hl.exec_cmd("/usr/lib/hyprpolkitagent/hyprpolkitagent")
+	-- Arch only; on NixOS hyprpolkitagent runs as a systemd user service.
+	hl.exec_cmd("[ -x /usr/lib/hyprpolkitagent/hyprpolkitagent ] && exec /usr/lib/hyprpolkitagent/hyprpolkitagent")
 	hl.exec_cmd("remotemouse")
 	hl.exec_cmd("blueman-applet")
 
 	-- Load hyprland apps
-	hl.exec_cmd("hyprpm reload -n")
+	-- hyprpm doesn't exist on NixOS (plugins come from Nix there).
+	hl.exec_cmd("command -v hyprpm >/dev/null && hyprpm reload -n")
 	hl.exec_cmd("hyprctl setcursor rose-pine-hyprcursor 24")
 
-	-- Main apps
+	-- Main apps (missing ones just fail silently, e.g. on the VM)
 	hl.exec_cmd("zen-browser", { workspace = "1 silent" })
 	hl.exec_cmd("discord", { workspace = "1 silent" })
 	hl.exec_cmd("steam", { workspace = "2 silent" })

@@ -1,4 +1,10 @@
 #!/usr/bin/env bash
+# On NixOS, Home Manager creates these links (see nixos-config).
+if [[ -e /etc/NIXOS ]]; then
+  echo "setup-symlinks: NixOS detected, links are managed by Home Manager"
+  exit 0
+fi
+
 DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CONFIG_PATH="$HOME/.config"
 HOME_DOTFILES="$DOTFILES/home"
