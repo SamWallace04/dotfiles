@@ -11,6 +11,10 @@ scale = 1.1500000096857548
 start = [ "workspaces", "media" ]
 thickness = 40
 
+    [bar.default.dead_zone.actions]
+    scroll_down = "volume-down 5"
+    scroll_up = "volume-up 5"
+
     [bar.default.monitor.Virtual-1]
     margin_ends = 0
     scale = 1.0000000074505806
@@ -96,6 +100,12 @@ community_palette = "Gruvbox Material"
 
     [theme.templates]
     builtin_ids = [ "btop", "ghostty", "hyprland", "qt" ]
+
+[wallpaper.default]
+path = "/nix/store/66r6li4qc325n917gq20mxd9kii0anv2-noctalia-5.2.1/share/noctalia/assets/noctalia-wallpaper.png"
+
+[wallpaper.last]
+path = "/nix/store/66r6li4qc325n917gq20mxd9kii0anv2-noctalia-5.2.1/share/noctalia/assets/noctalia-wallpaper.png"
 
 [widget.clock]
 format = "{:%H:%M %a %d-%m}"
