@@ -11,6 +11,11 @@ scale = 1.1500000096857548
 start = [ "workspaces", "media" ]
 thickness = 40
 
+    [bar.default.monitor.Virtual-1]
+    margin_ends = 0
+    scale = 1.0000000074505806
+    thickness = 20
+
 [lockscreen_widgets]
 enabled = false
 schema_version = 2
