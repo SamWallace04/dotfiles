@@ -1,10 +1,12 @@
 config_version = 14
 
 [bar.default]
+auto_hide = true
 background_opacity = 0.69999998435378075
 capsule = true
 end = [ "tray", "notifications", "clipboard", "network", "bluetooth", "volume", "session" ]
 margin_ends = 1400
+reserve_space = false
 scale = 1.1500000096857548
 start = [ "workspaces", "media" ]
 thickness = 40
