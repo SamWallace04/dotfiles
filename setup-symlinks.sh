@@ -89,3 +89,6 @@ if [[ -d "$HOME_DOTFILES" ]]; then
     setup_home_link "$name"
   done
 fi
+
+mkdir -p "$HOME/.local/state/noctalia"
+[[ -e "$DOTFILES/noctalia.toml" ]] && ln -sfn "$DOTFILES/noctalia.toml" "$HOME/.local/state/noctalia/settings.toml"
