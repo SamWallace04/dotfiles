@@ -8,10 +8,11 @@ end = [ "tray", "notifications", "clipboard", "network", "bluetooth", "volume", 
 margin_ends = 1000
 reserve_space = false
 scale = 1.1500000096857548
-start = [ "workspaces", "media" ]
+start = [ "wallpaper", "workspaces", "media" ]
 thickness = 40
 
     [bar.default.dead_zone.actions]
+    middle = "settings-open"
     scroll_down = "volume-down 5"
     scroll_up = "volume-up 5"
 
@@ -97,15 +98,25 @@ settings_window_translucent = true
 [theme]
 builtin = "Gruvbox"
 community_palette = "Gruvbox Material"
+mode = "dark"
+source = "builtin"
+wallpaper_scheme = "m3-content"
 
     [theme.templates]
     builtin_ids = [ "btop", "ghostty", "hyprland", "qt" ]
 
-[wallpaper.default]
-path = "/nix/store/66r6li4qc325n917gq20mxd9kii0anv2-noctalia-5.2.1/share/noctalia/assets/noctalia-wallpaper.png"
+[wallpaper]
+directory = "/home/sam/pictures/wallpaper"
+fill_mode = "stretch"
 
-[wallpaper.last]
-path = "/nix/store/66r6li4qc325n917gq20mxd9kii0anv2-noctalia-5.2.1/share/noctalia/assets/noctalia-wallpaper.png"
+    [wallpaper.default]
+    path = "/home/sam/pictures/wallpaper/1808467.jpg"
+
+    [wallpaper.last]
+    path = "/home/sam/pictures/wallpaper/1808467.jpg"
+
+    [wallpaper.monitors.DP-1]
+    path = "/home/sam/pictures/wallpaper/1808467.jpg"
 
 [widget.clock]
 format = "{:%H:%M %a %d-%m}"

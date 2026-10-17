@@ -151,9 +151,9 @@ alias hyprconfig='nvim ~/.config/hypr/'
 alias wbconfig='nvim ~/.config/waybar/'
 alias zjconfig='nvim ~/.config/zellij/'
 alias nosconfig='nvim ~/nixos-config/'
-alias nosswitch='nh os switch'
-alias nosbuild='nh os build'
-alias nosupdate='nh os switch --update'
+alias nosswitch='nh os switch ~/nixos-config'
+alias nosbuild='nh os build ~/nixos-config/'
+alias nosupdate='nh os switch --update ~/nixos-config'
 
 # Dev
 alias ni='npm i'
