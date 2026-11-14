@@ -164,6 +164,9 @@ alias cb="cargo build"
 
 # Custom functions
 
+# nnn: `n` runs nnn with cd on quit. Linked in by nixos-config (modules/apps/nnn).
+[ -f ~/.zsh/nnn-quitcd.zsh ] && source ~/.zsh/nnn-quitcd.zsh
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [[ "$TERM_PROGRAM" == "vscode" ]] && unset ARGV0
 
